@@ -260,8 +260,8 @@ console.log('res', formData.region)
     //   newErrors.billing_address = "Address is required";
     if (!formData.country) newErrors.country = "Country is required";
     // if (!formData.city) newErrors.city = "City is required";
-    if (!formData.region) newErrors.region = "Region is required";
-    if (!formData.governorate) newErrors.governorate = "Governorate is required";
+    // if (!formData.region) newErrors.region = "Region is required";
+    // if (!formData.governorate) newErrors.governorate = "Governorate is required";
 
 
 
@@ -311,12 +311,12 @@ console.log('res', formData.region)
       case "country":
         if (!value) error = "Country is required";
         break;
-      case "region":
-        if (!value) error = "Region is required";
-        break;
-          case "governorate":
-        if (!value) error = "Governorate is required";
-        break;
+      // case "region":
+      //   if (!value) error = "Region is required";
+      //   break;
+      //     case "governorate":
+      //   if (!value) error = "Governorate is required";
+      //   break;
       // case "city":
       //   if (!value) error = "City is required";
       //   break;
@@ -559,9 +559,9 @@ console.log('res', formData.region)
           />
         </div>
 
-        <div className="md:w-1/3">
+        {/* <div className="md:w-1/3">
           <label className="block mb-1 text-sm font-medium">{t("Region")}</label>
-          {/* {states.length > 0 && ( */}
+          
             <Select
               name="region"
               value={formData.region ? { value: formData.region, label: formData.region } : null}
@@ -579,15 +579,15 @@ console.log('res', formData.region)
               classNamePrefix="react-select"
               isClearable
             />
-          {/* )} */}
+         
           {errors.region && (
             <p className="mt-1 text-sm text-red-600">{errors.region}</p>
           )}
-        </div>
-
+        </div> */}
+{/* 
         <div className="md:w-1/3">
           <label className="block mb-1 text-sm font-medium">{t("Governorate")}</label>
-          {/* {cities.length > 0 && ( */}
+         
             <Select
               name="governorate"
               value={
@@ -608,11 +608,11 @@ console.log('res', formData.region)
               classNamePrefix="react-select"
               isClearable
             />
-          {/* )} */}
+    
           {errors.governorate && (
             <p className="mt-1 text-sm text-red-600">{errors.governorate}</p>
           )}
-        </div>
+        </div> */}
       </div>
 
       {/* <div className="flex flex-col md:flex-row md:gap-4 w-full">

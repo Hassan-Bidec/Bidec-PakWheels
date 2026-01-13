@@ -95,7 +95,7 @@ const handleRedirect = (item) => {
   };
 
   return (
-    <div className="bg-[#f2f3f3] py-12 px-4 min-h-screen flex flex-col items-center">
+    <div className="bg-[#f2f3f3] py-12 px-40 min-h-screen flex flex-col items-center">
       <div className="max-w-6xl w-full">
         <h2 className="text-2xl font-semibold text-gray-800 mb-6">Browse Used Cars</h2>
 
@@ -120,12 +120,12 @@ const handleRedirect = (item) => {
         <div className="relative group">
           <button
             onClick={scrollLeft}
-            className="absolute -left-5 top-1/2 -translate-y-1/2 z-10 bg-white w-10 h-10 rounded-full flex items-center justify-center shadow-md border border-gray-200 text-blue-400 hover:text-blue-600 transition-all opacity-0 group-hover:opacity-100"
+            className="absolute -left-5 top-[35%] -translate-y-1/2 z-10 bg-white w-10 h-10 rounded-full flex items-center justify-center shadow-md border border-gray-200 text-blue-400 hover:text-blue-600 transition-all"
           >
             <span className="text-xl font-bold">‹</span>
           </button>
 
-          {/* Wrapper for 2 Rows, 6 Columns effect */}
+        
           <div
             ref={carouselRef}
             className="overflow-x-auto scrollbar-hide scroll-smooth"
@@ -134,7 +134,7 @@ const handleRedirect = (item) => {
               {getItems().map((item, index) => (
                 <div 
                     key={index} 
-                    className="w-[180px] h-[170px]" // Fixed width to ensure 6 columns fit well
+                    className="w-[145px] h-[120px]" // Fixed width to ensure 6 columns fit well
                 >
                   {activeTab === "Model" || activeTab === "Budget" || activeTab === "City" ? (
                     <div className="h-full flex items-center justify-center text-center">
@@ -163,7 +163,7 @@ const handleRedirect = (item) => {
 
           <button
             onClick={scrollRight}
-            className="absolute -right-5 top-1/2 -translate-y-1/2 z-10 bg-white w-10 h-10 rounded-full flex items-center justify-center shadow-md border border-gray-200 text-blue-400 hover:text-blue-600 transition-all opacity-0 group-hover:opacity-100"
+            className="absolute -right-4 top-[35%] -translate-y-1/2 z-10 bg-white w-10 h-10 rounded-full flex items-center justify-center shadow-md border border-gray-200 text-blue-400 hover:text-blue-600 transition-all"
           >
             <span className="text-xl font-bold">›</span>
           </button>

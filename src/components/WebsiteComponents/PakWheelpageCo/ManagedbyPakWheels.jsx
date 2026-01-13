@@ -73,7 +73,7 @@ const ManagedbyPakWheels = () => {
   };
 
   return (
-    <div className="bg-[#f2f3f3] py-10 px-4 flex justify-center">
+    <div className="bg-[#f2f3f3] py-10 px-35 flex justify-center">
       <div className="max-w-6xl w-full">
         {/* Header Section */}
         <div className="flex justify-between items-end mb-4">
@@ -91,12 +91,11 @@ const ManagedbyPakWheels = () => {
           <button 
             onClick={prevSlide}
             disabled={currentIndex === 0}
-            className={`absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white w-10 h-10 rounded-full flex items-center justify-center shadow-md border border-gray-200 transition-all ${currentIndex === 0 ? 'opacity-0' : 'opacity-100'}`}
+            className={`absolute top-1/2 -translate-y-1/2 z-1 bg-white w-10 h-10 rounded-full  flex items-center justify-center shadow-md border border-gray-200 transition-all ${currentIndex === 0 ? 'opacity-0' : 'opacity-100'}`}
           >
             <span className="text-blue-500 text-2xl">‹</span>
           </button>
 
-          {/* Cards Wrapper */}
           <div 
             className="flex transition-transform duration-500 ease-out gap-4"
             style={{ transform: `translateX(-${currentIndex * 265}px)` }}
@@ -105,7 +104,7 @@ const ManagedbyPakWheels = () => {
               <div 
                 key={index} 
                 onClick={() => handleRedirect(car)}
-                className="min-w-[255px] bg-white rounded-sm overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-shadow cursor-pointer"
+                className="min-w-[245px] bg-white rounded-sm overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-shadow cursor-pointer"
               >
                 {/* Image & Tag */}
                 <div className="relative h-44 bg-gray-200">

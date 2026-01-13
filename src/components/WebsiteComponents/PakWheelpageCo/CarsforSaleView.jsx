@@ -55,7 +55,7 @@ const router = useRouter();
   };
 
   return (
-    <div className=" py-10 px-4 flex justify-center">
+    <div className=" py-10 px-30 flex justify-center">
       <div className="max-w-6xl w-full">
         {/* Header Section */}
         <div className="flex justify-between items-end mb-5">
@@ -86,7 +86,7 @@ const router = useRouter();
               <div 
                 key={index} 
                 onClick={() => handleRedirect(car)} // ← redirect on click
-                className="min-w-[270px] bg-white rounded-sm overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-shadow cursor-pointer"
+                className="min-w-[245px] bg-white rounded-sm overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-shadow cursor-pointer"
               >
                 {/* Image Section with Featured Tag */}
                 <div className="relative h-48 w-full bg-gray-100">

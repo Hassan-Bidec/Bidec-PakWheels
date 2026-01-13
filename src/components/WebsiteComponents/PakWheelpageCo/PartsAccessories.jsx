@@ -84,7 +84,7 @@ const router = useRouter();
   };
 
   return (
-    <div className=" py-10 px-4 flex justify-center font-sans">
+    <div className=" py-10 px-35 flex justify-center font-sans">
       <div className="max-w-6xl w-full">
         <h2 className="text-[22px] font-semibold text-[#434343] mb-6">
           Auto Store Car Parts & Accessories
@@ -114,7 +114,7 @@ const router = useRouter();
             {currentItems.map((model, index) => (
  <div 
                 key={index} 
-                className="text-[#3b6598] hover:underline cursor-pointer text-[15px]"
+                className="text-[#3b6598] hover:underline shadow-gray-400 m-5 cursor-pointer text-[15px]"
                 onClick={() => handleClick(model)}
               >                {model}
               </div>
@@ -143,7 +143,7 @@ const router = useRouter();
                   {currentItems.map((item, index) => (
                     <div 
                       key={index} 
-                      className="w-[180px] bg-white p-4 rounded-sm shadow-sm border border-transparent hover:border-[#3b6598]/30 transition-all flex flex-col items-center justify-center cursor-pointer h-40"
+                      className="w-[150px] bg-white p-4 rounded-sm shadow-sm border border-transparent hover:border-[#3b6598]/30 transition-all flex flex-col items-center justify-center cursor-pointer h-30"
                     >
                       <div className="h-20 w-full flex items-center justify-center mb-3">
                         <img 

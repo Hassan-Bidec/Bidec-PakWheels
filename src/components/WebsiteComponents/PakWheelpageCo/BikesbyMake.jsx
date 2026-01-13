@@ -26,7 +26,7 @@ const BikesbyMake = () => {
   ];
 
   return (
-    <section className="bg-[#f2f3f3] py-10 px-4 mt-10 flex justify-center">
+    <section className="bg-[#f2f3f3] py-10 px-35 mt-10 flex justify-center">
       <div className="max-w-6xl w-full">
         {/* Header */}
         <h2 className="text-[22px] font-semibold text-[#434343] mb-8">
@@ -51,7 +51,7 @@ const BikesbyMake = () => {
               </div>
               
               {/* Brand Name */}
-              <p className="mt-3 text-[15px] font-medium text-[#434343] group-hover:text-[#3b6598] transition-colors">
+              <p className="mt-3 text-[15px]  font-bold text-[#3b6598] transition-colors">
                 {make.name}
               </p>
             </div>

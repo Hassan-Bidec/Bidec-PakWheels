@@ -66,7 +66,7 @@ const router = useRouter();
   };
 
   return (
-    <section className=" py-12 px-15 flex justify-center font-sans">
+    <section className=" py-12 px-35 flex justify-center font-sans">
       <div className="max-w-6xl w-full">
         {/* Header Section */}
         <div className="flex justify-between items-end mb-6">

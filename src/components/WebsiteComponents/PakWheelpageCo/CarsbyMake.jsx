@@ -37,7 +37,7 @@ const CarsbyMake = () => {
 
 
   return (
-    <section className=" py-12 px-10 md:px-0">
+    <section className=" py-12 px-70 md:px-0">
       <div className="max-w-6xl mx-auto">
         {/* Title */}
         <h2 className="text-[22px] font-semibold text-[#434343] mb-8">
@@ -45,7 +45,7 @@ const CarsbyMake = () => {
         </h2>
 
         {/* Grid Container */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-y-10 gap-x-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-y-7 ">
           {brands.map((make, index) => (
            <div 
               key={index} 

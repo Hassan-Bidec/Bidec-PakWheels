@@ -14,7 +14,7 @@ const schema = yup.object().shape({
   new_password: yup
     .string()
     .required("New password is required"),
-    // .min(8, "Password must be at least 8 characters"),
+  // .min(8, "Password must be at least 8 characters"),
   new_password_confirmation: yup
     .string()
     .oneOf([yup.ref("new_password"), null], "Passwords must match")
@@ -57,11 +57,11 @@ const ChangePassword = () => {
   return (
     <div className="p-3  bg-[#FAFAFA] rounded-[10px]">
       <h2 className="text-2xl font-semibold mb-2 text-black">
-    {t("Change your password")}
+        {t("Change your password")}
       </h2>
 
       <p className="text-black mb-6 text-sm">
-    {t("Required fields are shown with a star *")}
+        {t("Required fields are shown with a star *")}
       </p>
 
       <form
@@ -72,12 +72,12 @@ const ChangePassword = () => {
         {/* Old Password */}
         <div>
           <label htmlFor="oldPassword" className="block text-sm font-semibold mb-1">
-           {t("Old Password")} <span className="text-red-500">*</span>
+            {t("Old Password")} <span className="text-red-500">*</span>
           </label>
           <input
             type="password"
             id="oldPassword"
-        placeholder={t("Enter old password")}
+            placeholder={t("Enter old password")}
             {...register("current_password")}
             className="w-full md:w-[500px] border border-gray-300 rounded-[10px] px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
           />
@@ -90,12 +90,12 @@ const ChangePassword = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label htmlFor="newPassword" className="block text-sm font-semibold mb-1">
-            {t("New Password")} <span className="text-red-500">*</span>
+              {t("New Password")} <span className="text-red-500">*</span>
             </label>
             <input
               type="password"
               id="newPassword"
-          placeholder={t("Enter new password")}
+              placeholder={t("Enter new password")}
               {...register("new_password")}
               className="w-full border border-gray-300 rounded-[10px] px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
             />
@@ -111,7 +111,7 @@ const ChangePassword = () => {
             <input
               type="password"
               id="confirmPassword"
-          placeholder={t("Confirm new password")}
+              placeholder={t("Confirm new password")}
               {...register("new_password_confirmation")}
               className="w-full border border-gray-300 rounded-[10px] px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
             />
@@ -123,16 +123,16 @@ const ChangePassword = () => {
 
         {/* Info Text */}
         <p className="text-sm text-gray-600">
-               {t("Password strength")}<br />
-      <span>{t("We recommend you use a strong, unique password.")}</span>
+          {t("Password strength")}<br />
+          <span>{t("We recommend you use a strong, unique password.")}</span>
         </p>
 
         {/* Buttons */}
         <div className="md:col-span-2 flex gap-3">
-      <Button type="submit">{t("Save")}</Button>
-        <Button type="button" onClick={hideComponent}>
-        {t("Go Back")}
-      </Button>
+          <Button type="submit">{t("Save")}</Button>
+          <Button type="button" onClick={hideComponent}>
+            {t("Go Back")}
+          </Button>
         </div>
       </form>
     </div>
