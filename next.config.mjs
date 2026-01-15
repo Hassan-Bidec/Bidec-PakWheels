@@ -18,13 +18,8 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "trademe.datainovate.com",
-        pathname: "/backend/storage/**",
-      },
-      {
-        protocol: "https",
-        hostname: "ma3rood.datainovate.com",
-        pathname: "/backend/storage/**",
+        hostname: "banglarchaka-motors.datainovate.com",
+        pathname: "/storage/**",
       },
       {
         protocol: "https",

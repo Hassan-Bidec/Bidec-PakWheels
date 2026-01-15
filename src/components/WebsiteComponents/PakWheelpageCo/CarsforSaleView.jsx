@@ -1,46 +1,21 @@
-"use client"
+import { useHomeStore } from '@/lib/stores/homeStore';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 
 const CarsforSaleView = () => {
+  const { homeData, isLoading } = useHomeStore();
   const [currentIndex, setCurrentIndex] = useState(0);
-const router = useRouter();
+  const router = useRouter();
 
   const handleRedirect = (car) => {
-    router.push(`/motors?car=${encodeURIComponent(car.name)}`);
+    router.push(`/motors?car=${encodeURIComponent(car.title)}`);
   };
-  const featuredCars = [
-    {
-      name: "Suzuki Mehran 2019",
-      price: "PKR 1,550,000",
-      city: "Sargodha",
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAQm0Ci7I9Q5RmVsgLBsiXprK9Pqhiq8qRkg&s" // Example image
-    },
-    {
-      name: "Hyundai Santro 2006",
-      price: "PKR 1,250,000",
-      city: "Islamabad",
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwXOMtn6aAiGxk3qeUON2yE-myRYhwJ9tZ7Q&s"
-    },
-    {
-      name: "Toyota Corolla 2019",
-      price: "PKR 5,580,000",
-      city: "Bahawalnagar",
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBG8C8ak_bzGT1fZwTm4ZECsBtJFUXd5SiDg&s"
-    },
-    {
-      name: "Toyota Raize 2020",
-      price: "PKR 6,650,000",
-      city: "Karachi",
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs20_Q7MVjgTz4Ye8WZVbp6xgeyQ2UtP123Q&s"
-    },
-    {
-      name: "Honda Civic 2021",
-      price: "PKR 7,200,000",
-      city: "Lahore",
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXoCpbvmHwyhoZayg8CLKP_6k0k8fCVtMQQg&s"
-    }
-  ];
+
+  if (isLoading || !homeData?.usedCars) {
+    return <div className="py-10 text-center">Loading...</div>;
+  }
+
+  const featuredCars = homeData.usedCars.hot_listings || [];
 
   const nextSlide = () => {
     if (currentIndex < featuredCars.length - 4) {
@@ -70,7 +45,7 @@ const router = useRouter();
         {/* Carousel Container */}
         <div className="relative group overflow-hidden">
           {/* Navigation Arrows */}
-          <button 
+          <button
             onClick={prevSlide}
             disabled={currentIndex === 0}
             className={`absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg border border-gray-200 transition-all ${currentIndex === 0 ? 'opacity-0' : 'opacity-100'}`}
@@ -78,22 +53,22 @@ const router = useRouter();
             <span className="text-blue-500 text-2xl">‹</span>
           </button>
 
-          <div 
+          <div
             className="flex transition-transform duration-500 ease-in-out gap-4"
             style={{ transform: `translateX(-${currentIndex * 280}px)` }}
           >
             {featuredCars.map((car, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 onClick={() => handleRedirect(car)} // ← redirect on click
                 className="min-w-[245px] bg-white rounded-sm overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-shadow cursor-pointer"
               >
                 {/* Image Section with Featured Tag */}
                 <div className="relative h-48 w-full bg-gray-100">
-                  <img 
-                    src={car.img} 
-                    alt={car.name} 
-                    className="w-full h-full object-cover" 
+                  <img
+                    src={car.image}
+                    alt={car.title}
+                    className="w-full h-full object-cover"
                   />
                   <div className="absolute top-0 left-0 bg-[#b73439] text-white text-[10px] font-bold px-2 py-0.5 uppercase tracking-wider">
                     Featured
@@ -103,20 +78,20 @@ const router = useRouter();
                 {/* Content Section */}
                 <div className="p-4 bg-white">
                   <h3 className="text-[#3b6598] font-bold text-[15px] mb-1 hover:underline truncate">
-                    {car.name}
+                    {car.title}
                   </h3>
                   <p className="text-[#3eb549] font-bold text-[15px]">
-                    {car.price}
+                    PKR {car.buy_now_price || car.start_price}
                   </p>
                   <p className="text-gray-400 text-[13px] mt-1">
-                    {car.city}
+                    {car.city?.name || "City N/A"}
                   </p>
                 </div>
               </div>
             ))}
           </div>
 
-          <button 
+          <button
             onClick={nextSlide}
             disabled={currentIndex >= featuredCars.length - 4}
             className={`absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg border border-gray-200 transition-all ${currentIndex >= featuredCars.length - 4 ? 'opacity-0' : 'opacity-100'}`}

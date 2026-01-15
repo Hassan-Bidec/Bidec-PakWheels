@@ -1,3 +1,4 @@
+'use client'
 import Banner from '@/components/WebsiteComponents/PakWheelpageCo/Banner'
 import BikesbyMake from '@/components/WebsiteComponents/PakWheelpageCo/BikesbyMake'
 import CarComparisons from '@/components/WebsiteComponents/PakWheelpageCo/CarComparisons'
@@ -12,27 +13,33 @@ import PakWheelsOfferings from '@/components/WebsiteComponents/PakWheelpageCo/Pa
 import PartsAccessories from '@/components/WebsiteComponents/PakWheelpageCo/PartsAccessories'
 import PopularNewBikes from '@/components/WebsiteComponents/PakWheelpageCo/PopularNewBikes'
 import UsedCars from '@/components/WebsiteComponents/PakWheelpageCo/UsedCars'
-
-import React from 'react'
+import { useHomeStore } from '@/lib/stores/homeStore' // Import store
+import React, { useEffect } from 'react' // Import useEffect
 
 const page = () => {
+  const { fetchHomeData } = useHomeStore();
+
+  useEffect(() => {
+    fetchHomeData();
+  }, [fetchHomeData]);
+
   return (
     <div>
       {/* <PakWheels/> */}
-      <Banner/>
-      <PakWheels/>
-      <UsedCars/>
-      <PakWheelsOfferings/>
-      <ManagedbyPakWheels/>
-      <CarsforSaleView/>
-      <FeaturedNewCars/>
-      <CarsbyMake/>
-      <CarComparisons/>
-      <PartsAccessories/>
-      <BikesbyMake/>
-      <PopularNewBikes/>
-      <OurVideos/>
-      <NewsDiscussions/>
+      <Banner />
+      <PakWheels />
+      <UsedCars />
+      {/* <PakWheelsOfferings /> */}
+      <ManagedbyPakWheels />
+      <CarsforSaleView />
+      <FeaturedNewCars />
+      <CarsbyMake />
+      {/* <CarComparisons /> */}
+      <PartsAccessories />
+      <BikesbyMake />
+      <PopularNewBikes />
+      <OurVideos />
+      <NewsDiscussions />
     </div>
   )
 }

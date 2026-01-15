@@ -1,33 +1,33 @@
-"use client"
+import { useHomeStore } from '@/lib/stores/homeStore';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 
 const FeaturedNewCars = () => {
-  const [activeTab, setActiveTab] = useState('Newly Launched');
+  const { homeData, isLoading } = useHomeStore();
+  const [activeTab, setActiveTab] = useState('Popular');
   const [currentIndex, setCurrentIndex] = useState(0);
-const router = useRouter();
+  const router = useRouter();
+
   const handleRedirect = (car) => {
-    router.push(`/motors?car=${encodeURIComponent(car.name)}`);
+    router.push(`/motors?car=${encodeURIComponent(car.title)}`);
   };
 
+  if (isLoading || !homeData?.newCars) {
+    return <div className="py-10 text-center">Loading...</div>; // Or a skeleton loader
+  }
+
+  const { newCars } = homeData;
+
+  // Map API data to component structure
+  // Note: The API response has 'popular' and 'newly_launched'.
+  // 'Upcoming' is not in the sample response, so we might need to hide it or leave it empty.
   const carData = {
-    'Popular': [
-      { name: "Toyota Corolla", price: "PKR 75.0 - 80.0 lacs", date: "Launched June 2025", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtZ3uBuRWl08jDnjO0E4tB1DX_oRci2B03tw&s" },
-      // Add more popular cars here
-    ],
-    'Upcoming': [
-      { name: "Honda Civic 2026", price: "Coming Soon", date: "Expected March 2026", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOePLjHBRGb_UtBWQJh_i70V1dafUMyMAclA&s" },
-    ],
-    'Newly Launched': [
-      { name: "Jaecoo J5", price: "PKR 67.0 - 77.0 lacs", date: "Launched January 2026", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOePLjHBRGb_UtBWQJh_i70V1dafUMyMAclA&s" },
-      { name: "MG Binguo", price: "PKR 60.0 lacs", date: "Launched December 2025", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ5GttHr3mWDG5joExjvHktst6hKq8RUIVBQ&s" },
-      { name: "MG U9", price: "PKR 2.28 crore", date: "Launched December 2025", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOePLjHBRGb_UtBWQJh_i70V1dafUMyMAclA&s" },
-      { name: "Elektra Metro", price: "PKR 10.5 - 13.5 lacs", date: "Launched November 2025", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOePLjHBRGb_UtBWQJh_i70V1dafUMyMAclA&s" },
-      { name: "Suzuki Swift", price: "PKR 45.0 lacs", date: "Launched Oct 2025", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ5GttHr3mWDG5joExjvHktst6hKq8RUIVBQ&s" },
-    ]
+    'Popular': newCars.popular || [],
+    'Upcoming': [], // No data in sample response for upcoming
+    'Newly Launched': newCars.newly_launched || []
   };
 
-  const currentCars = carData[activeTab];
+  const currentCars = carData[activeTab] || [];
 
   const nextSlide = () => {
     if (currentIndex < currentCars.length - 4) {
@@ -48,6 +48,8 @@ const router = useRouter();
   };
 
   const renderStars = (rating) => {
+    // Rating isn't in the API response yet, defaulting to 0 or hidden
+    if (!rating) return null;
     return (
       <div className="flex justify-center gap-0.5 mb-1">
         {[1, 2, 3, 4, 5].map((star) => (
@@ -82,11 +84,10 @@ const router = useRouter();
             <button
               key={tab}
               onClick={() => handleTabChange(tab)}
-              className={`pb-3 text-[17px] font-medium transition-all relative ${
-                activeTab === tab 
-                ? 'text-[#232954] border-b-[3px] border-[#3b6598]' 
+              className={`pb-3 text-[17px] font-medium transition-all relative ${activeTab === tab
+                ? 'text-[#232954] border-b-[3px] border-[#3b6598]'
                 : 'text-gray-500 hover:text-gray-800'
-              }`}
+                }`}
             >
               {tab}
             </button>
@@ -96,56 +97,56 @@ const router = useRouter();
         {/* Carousel Container */}
         <div className="relative overflow-hidden group">
           {/* Arrows */}
-          <button 
+          <button
             onClick={prevSlide}
             className={`absolute left-0 top-[40%] -translate-y-1/2 z-10 bg-white w-10 h-10 rounded-full flex items-center justify-center shadow-md border border-gray-200 transition-opacity ${currentIndex === 0 ? 'opacity-0' : 'opacity-100'}`}
           >
             <span className="text-blue-500 text-2xl">‹</span>
           </button>
 
-          <div 
+          <div
             className="flex transition-transform duration-500 ease-in-out gap-4"
             style={{ transform: `translateX(-${currentIndex * 290}px)` }}
           >
             {currentCars.map((car, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 onClick={() => handleRedirect(car)} // ← redirect on click
                 className="min-w-[245px] bg-white rounded-sm overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-shadow cursor-pointer"
               >
                 {/* Car Image */}
                 <div className="h-40 w-full flex items-center justify-center mb-4">
-                  <img 
-                    src={car.img} 
-                    alt={car.name} 
-                    className="max-w-full max-h-full object-contain hover:scale-105 transition-transform" 
+                  <img
+                    src={car.image}
+                    alt={car.title}
+                    className="max-w-full max-h-full object-contain hover:scale-105 transition-transform"
                   />
                 </div>
 
                 {/* Info */}
                 <div className="text-center">
                   <h3 className="text-[#3b6598] font-bold text-[16px] mb-2 hover:underline cursor-pointer">
-                    {car.name}
+                    {car.title}
                   </h3>
                   <p className="text-[#3eb549] font-medium text-[14px]">
-                    {car.price}
+                    PKR {car.buy_now_price || car.start_price}
                   </p>
                   <div className="justify-center flex">
-                  {/* <h3 className="text-[#3b6598] font-bold text-[16px] mb-1 truncate">{car.name}</h3> */}
-                  
-                  {/* Rating Stars */}
-                  {renderStars(car.rating)}
-                  
-                  <p className="text-gray-500 text-[13px]">
-                    {car.reviews} Reviews
-                  </p>
-                </div>
+                    {/* <h3 className="text-[#3b6598] font-bold text-[16px] mb-1 truncate">{car.name}</h3> */}
+
+                    {/* Rating Stars */}
+                    {renderStars(car.rating)}
+
+                    <p className="text-gray-500 text-[13px]">
+                      {car.reviews ? `${car.reviews} Reviews` : ''}
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
 
-          <button 
+          <button
             onClick={nextSlide}
             className={`absolute right-0 top-[40%] -translate-y-1/2 z-10 bg-white w-10 h-10 rounded-full flex items-center justify-center shadow-md border border-gray-200 transition-opacity ${currentIndex >= currentCars.length - 4 ? 'opacity-0' : 'opacity-100'}`}
           >
