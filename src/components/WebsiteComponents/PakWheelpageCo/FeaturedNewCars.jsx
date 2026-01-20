@@ -9,7 +9,7 @@ const FeaturedNewCars = () => {
   const router = useRouter();
 
   const handleRedirect = (car) => {
-    router.push(`/motors?car=${encodeURIComponent(car.title)}`);
+    router.push(`/motors/${car.slug}`);
   };
 
   if (isLoading || !homeData?.newCars) {

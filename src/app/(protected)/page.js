@@ -27,7 +27,7 @@ const page = () => {
     <div>
       {/* <PakWheels/> */}
       <Banner />
-      <PakWheels />
+      {/* <PakWheels /> */}
       <UsedCars />
       {/* <PakWheelsOfferings /> */}
       <ManagedbyPakWheels />

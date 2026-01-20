@@ -8,7 +8,8 @@ const CarsforSaleView = () => {
   const router = useRouter();
 
   const handleRedirect = (car) => {
-    router.push(`/motors?car=${encodeURIComponent(car.title)}`);
+    router.push(`/motors/${car.slug}`);
+    console.log(car.slug);
   };
 
   if (isLoading || !homeData?.usedCars) {

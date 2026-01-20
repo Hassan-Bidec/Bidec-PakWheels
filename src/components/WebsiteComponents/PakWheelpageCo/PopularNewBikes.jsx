@@ -8,7 +8,7 @@ const PopularNewBikes = () => {
   const router = useRouter();
 
   const handleBikeClick = (bike) => {
-    router.push(`/motors?bike=${encodeURIComponent(bike.title)}`);
+    router.push(`/motors/${bike.slug}`);
   };
 
   const bikes = homeData?.bikes?.popular_bikes || [];
@@ -26,7 +26,7 @@ const PopularNewBikes = () => {
   };
 
   return (
-    <section className=" py-12 px-35 flex justify-center font-sans">
+    <section className="py-12 px-35 flex justify-center font-sans">
       <div className="max-w-6xl w-full">
         {/* Header Section */}
         <div className="flex justify-between items-end mb-6">

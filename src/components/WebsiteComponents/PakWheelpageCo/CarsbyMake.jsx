@@ -7,7 +7,7 @@ const CarsbyMake = () => {
   const router = useRouter();
 
   const handleRedirect = (brand) => {
-    router.push(`/motors?carMake=${encodeURIComponent(brand.name)}`);
+    router.push(`/motors?make=${encodeURIComponent(brand.name)}`);
   };
 
   // Use API data or fallback to empty array (or keep hardcoded if user wants mixed? "populate brands... reference... response" implies use API).
@@ -18,7 +18,7 @@ const CarsbyMake = () => {
 
 
   return (
-    <section className=" py-12 px-70 md:px-0">
+    <section className="py-10 px-30">
       <div className="max-w-6xl mx-auto">
         {/* Title */}
         <h2 className="text-[22px] font-semibold text-[#434343] mb-8">

@@ -19,20 +19,20 @@ const page = () => {
   return (
     <div>
       {/* <PakWheels/> */}
-      <Banner/>
-      <PakWheels/>
-      <UsedCars/>
-      <PakWheelsOfferings/>
-      <ManagedbyPakWheels/>
-      <CarsforSaleView/>
-      <FeaturedNewCars/>
-      <CarsbyMake/>
-      <CarComparisons/>
-      <PartsAccessories/>
-      <BikesbyMake/>
-      <PopularNewBikes/>
-      <OurVideos/>
-      <NewsDiscussions/>
+      <Banner />
+      <PakWheels />
+      <UsedCars />
+      <PakWheelsOfferings />
+      <ManagedbyPakWheels />
+      <CarsforSaleView />
+      <FeaturedNewCars />
+      <CarsbyMake />
+      <CarComparisons />
+      <PartsAccessories />
+      <BikesbyMake />
+      <PopularNewBikes />
+      <OurVideos />
+      <NewsDiscussions />
     </div>
   )
 }

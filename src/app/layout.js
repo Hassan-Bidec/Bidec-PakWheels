@@ -5,9 +5,9 @@ import Toaster from "@/components/WebsiteComponents/Toaster";
 import AuthCleanup from "@/lib/common/AuthCleanup";
 
 export const metadata = {
-  title: "Ma3rood",
-  description: "Ma3rood - The Kingdom's marketplace for everything from household items and cars to homes, jobs, and services.",
-other: {
+  title: "Banglar Chaka",
+  description: "Banglar Chaka - The marketplace for everything from household items and cars to homes, jobs, and services.",
+  other: {
     "google-site-verification": "QOcVF2O0EwymmQj0mtALBvLdFn8PN1QjHWk2pIKwaME",
   },
 };

@@ -1171,205 +1171,171 @@
             ],
             "new_bikes": []
         },
-        "autoStore": [
-            {
-                "id": 451,
-                "title": "Eyeglass Case",
-                "slug": "eyeglass-case-692413198f5ef",
-                "brand": null,
-                "condition": "brand_new_unused",
-                "start_price": "35",
-                "buy_now_price": "45",
-                "image": "https://banglarchaka-motors.datainovate.com/storage/listings/images/YfbA8FgcO6xMoB0s1vjoKrYF6pPUaHVJtAmbg6dx.png",
-                "category": {
-                    "id": 2579,
-                    "name": "Contact accessories"
-                },
-                "creator": {
-                    "id": 33,
-                    "name": "BUSHRA MUKHTAR",
-                    "address": null
-                },
-                "is_featured": false,
-                "is_managed": false,
-                "created_at": "1 month ago"
-            },
-            {
-                "id": 414,
-                "title": "Mehran brakes",
-                "slug": "mehran-brakes-69162af2cb088",
-                "brand": null,
-                "condition": "used",
-                "start_price": "0",
-                "buy_now_price": "3,000",
-                "image": "https://banglarchaka-motors.datainovate.com/storage/listings/images/c0bGC98tugPg5hkLRsvhkJLSaXdn9zOS9tc9mcbp.jpg",
-                "category": {
-                    "id": 5752,
-                    "name": "Car parts & accessories"
-                },
-                "creator": {
-                    "id": 143,
-                    "name": "waqas usman",
-                    "address": null
-                },
-                "is_featured": false,
-                "is_managed": false,
-                "created_at": "2 months ago"
-            },
-            {
-                "id": 410,
-                "title": "New Bumper",
-                "slug": "new-bumper-6915fe1b69a82",
-                "brand": null,
-                "condition": "used",
-                "start_price": "0",
-                "buy_now_price": "100,000",
-                "image": "https://banglarchaka-motors.datainovate.com/storage/listings/images/fcVZr1KrqFe17iFBR94OR5GTIKkrbwj0GRKW6Vic.jpg",
-                "category": {
-                    "id": 5752,
-                    "name": "Car parts & accessories"
-                },
-                "creator": {
-                    "id": 143,
-                    "name": "waqas usman",
-                    "address": null
-                },
-                "is_featured": false,
-                "is_managed": false,
-                "created_at": "2 months ago"
-            },
-            {
-                "id": 409,
-                "title": "Front Bumper",
-                "slug": "front-bumper-6915fd5bd32f4",
-                "brand": null,
-                "condition": "brand_new",
-                "start_price": "0",
-                "buy_now_price": "55,000",
-                "image": "https://banglarchaka-motors.datainovate.com/storage/listings/images/UtbblelFOSDaUk4ArqyxflDbeHUsjdsSkSjfoD2O.jpg",
-                "category": {
-                    "id": 5752,
-                    "name": "Car parts & accessories"
-                },
-                "creator": {
-                    "id": 143,
-                    "name": "waqas usman",
-                    "address": null
-                },
-                "is_featured": false,
-                "is_managed": false,
-                "created_at": "2 months ago"
-            },
-            {
-                "id": 408,
-                "title": "bumper",
-                "slug": "bumper-6915fc4643b12",
-                "brand": null,
-                "condition": "new",
-                "start_price": "0",
-                "buy_now_price": "12,000",
-                "image": "https://banglarchaka-motors.datainovate.com/storage/listings/images/ZlA7ztjgxSEIgYbvxs1g5Kec6I2nGEvuReA3rS94.jpg",
-                "category": {
-                    "id": 5752,
-                    "name": "Car parts & accessories"
-                },
-                "creator": {
-                    "id": 143,
-                    "name": "waqas usman",
-                    "address": null
-                },
-                "is_featured": false,
-                "is_managed": false,
-                "created_at": "2 months ago"
-            },
-            {
-                "id": 407,
-                "title": "Front Bumper",
-                "slug": "front-bumper-6915eb3b5d01b",
-                "brand": null,
-                "condition": "new",
-                "start_price": "0",
-                "buy_now_price": "12,000",
-                "image": "https://banglarchaka-motors.datainovate.com/storage/listings/images/HZEd2Mb4HDmqEi6IzXA4rs58P0Kmr3At2nFeS1AV.jpg",
-                "category": {
-                    "id": 5752,
-                    "name": "Car parts & accessories"
-                },
-                "creator": {
-                    "id": 143,
-                    "name": "waqas usman",
-                    "address": null
-                },
-                "is_featured": false,
-                "is_managed": false,
-                "created_at": "2 months ago"
-            },
-            {
-                "id": 406,
-                "title": "Nissan Patrol",
-                "slug": "nissan-patrol-6915e479445b6",
-                "brand": null,
-                "condition": "new",
-                "start_price": "0",
-                "buy_now_price": "12,000",
-                "image": "https://banglarchaka-motors.datainovate.com/storage/listings/images/TQ9w4W5Gf3dGQRGAsxzz3AmjI5KG19ibGXBd80Xt.jpg",
-                "category": {
-                    "id": 5752,
-                    "name": "Car parts & accessories"
-                },
-                "creator": {
-                    "id": 143,
-                    "name": "waqas usman",
-                    "address": null
-                },
-                "is_featured": false,
-                "is_managed": false,
-                "created_at": "2 months ago"
-            },
-            {
-                "id": 405,
-                "title": "toyota hilux radiator",
-                "slug": "toyota-hilux-radiator-6915e2c8e31af",
-                "brand": null,
-                "condition": "used",
-                "start_price": "0",
-                "buy_now_price": "130,000",
-                "image": "https://banglarchaka-motors.datainovate.com/storage/listings/images/jvsqMJUjflwv1XUWvoT9SFr7EOJUTuqFlcw5o66r.jpg",
-                "category": {
-                    "id": 5752,
-                    "name": "Car parts & accessories"
-                },
-                "creator": {
-                    "id": 144,
-                    "name": "Prince Kavi",
-                    "address": null
-                },
-                "is_featured": false,
-                "is_managed": false,
-                "created_at": "2 months ago"
-            },
-            {
-                "id": 139,
-                "title": "Toyota Industries manufactures diesel engine",
-                "slug": "toyota-industries-manufactures-diesel-engine-68cbec4d47d5b",
-                "brand": null,
-                "condition": "used",
-                "start_price": "10,000",
-                "buy_now_price": "12,000",
-                "image": "https://banglarchaka-motors.datainovate.com/storage/listings/images/n3Kv8s7TkYgCrlEbtrIVSYRH9LSTGGAMPoMFIjrR.jpg",
-                "category": {
-                    "id": 5752,
-                    "name": "Car parts & accessories"
-                },
-                "creator": {
-                    "id": 75,
-                    "name": "wisam ahmed",
-                    "address": null
-                },
-                "is_featured": false,
-                "is_managed": false,
-                "created_at": "3 months ago"
+        "autoStore": {
+            "categories": {
+                "by_category": [
+                    {
+                        "id": 349,
+                        "name": "Accessories",
+                        "slug": "Baby-gear/Car-seats/Accessories"
+                    },
+                    {
+                        "id": 375,
+                        "name": "Footwear & accessories",
+                        "slug": "Baby-gear/Clothing/Footwear-accessories"
+                    },
+                    {
+                        "id": 483,
+                        "name": "Accessories",
+                        "slug": "Baby-gear/Prams-strollers/Accessories"
+                    },
+                    {
+                        "id": 509,
+                        "name": "Dolls & accessories",
+                        "slug": "Baby-gear/Toys/Dolls-accessories"
+                    },
+                    {
+                        "id": 769,
+                        "name": "Entertaining & party",
+                        "slug": "Books/Nonfiction/Cooking/Entertaining-party"
+                    },
+                    {
+                        "id": 1102,
+                        "name": "Accessories & consumables",
+                        "slug": "Building-renovation/Tools/Hand-tools/Accessories-consumables"
+                    },
+                    {
+                        "id": 1118,
+                        "name": "Accessories & consumables",
+                        "slug": "Building-renovation/Tools/Power-tools/Accessories-consumables"
+                    },
+                    {
+                        "id": 1184,
+                        "name": "Parts & components",
+                        "slug": "Business-farming-industry/Farming-forestry/Dairy-milking-equipment/Parts-components"
+                    },
+                    {
+                        "id": 1205,
+                        "name": "Chainsaws & parts",
+                        "slug": "Business-farming-industry/Farming-forestry/Forestry/Chainsaws-parts"
+                    },
+                    {
+                        "id": 1253,
+                        "name": "Parts & accessories",
+                        "slug": "Business-farming-industry/Farming-forestry/Loading-lifting/Parts-accessories"
+                    },
+                    {
+                        "id": 1269,
+                        "name": "Parts & accessories",
+                        "slug": "Business-farming-industry/Farming-forestry/Planting/Parts-accessories"
+                    },
+                    {
+                        "id": 1295,
+                        "name": "Parts & accessories",
+                        "slug": "Business-farming-industry/Farming-forestry/Soil-cultivation/Parts-accessories"
+                    }
+                ],
+                "by_make": [
+                    {
+                        "name": "Audi",
+                        "slug": "audi"
+                    },
+                    {
+                        "name": "bmw",
+                        "slug": "bmw"
+                    },
+                    {
+                        "name": "FORD",
+                        "slug": "ford"
+                    },
+                    {
+                        "name": "GEELY",
+                        "slug": "geely"
+                    },
+                    {
+                        "name": "Haval",
+                        "slug": "haval"
+                    },
+                    {
+                        "name": "Honda",
+                        "slug": "honda"
+                    },
+                    {
+                        "name": "HYUNDAI",
+                        "slug": "hyundai"
+                    },
+                    {
+                        "name": "infiniti",
+                        "slug": "infiniti"
+                    },
+                    {
+                        "name": "ISUZU",
+                        "slug": "isuzu"
+                    },
+                    {
+                        "name": "KIA",
+                        "slug": "kia"
+                    },
+                    {
+                        "name": "Land Rover",
+                        "slug": "land-rover"
+                    },
+                    {
+                        "name": "LEXUS",
+                        "slug": "lexus"
+                    }
+                ],
+                "by_model": [
+                    {
+                        "name": "'34",
+                        "slug": "34"
+                    },
+                    {
+                        "name": "1 series",
+                        "slug": "1-series"
+                    },
+                    {
+                        "name": "10 series",
+                        "slug": "10-series"
+                    },
+                    {
+                        "name": "11 series",
+                        "slug": "11-series"
+                    },
+                    {
+                        "name": "12 series",
+                        "slug": "12-series"
+                    },
+                    {
+                        "name": "128i",
+                        "slug": "128i"
+                    },
+                    {
+                        "name": "13 series",
+                        "slug": "13-series"
+                    },
+                    {
+                        "name": "135i",
+                        "slug": "135i"
+                    },
+                    {
+                        "name": "14 series",
+                        "slug": "14-series"
+                    },
+                    {
+                        "name": "15 Series",
+                        "slug": "15-series"
+                    },
+                    {
+                        "name": "1500 Foldaway",
+                        "slug": "1500-foldaway"
+                    },
+                    {
+                        "name": "16 Series",
+                        "slug": "16-series"
+                    }
+                ]
             }
-        ]
+        }
     }
 }

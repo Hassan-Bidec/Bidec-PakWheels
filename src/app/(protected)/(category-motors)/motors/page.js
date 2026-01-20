@@ -11,14 +11,29 @@ export const metadata = {
     "Discover the latest cars, bikes, and commercial vehicles for sale in Saudi Arabia. Find new and used vehicles from trusted sellers across major cities with Ma3rood Motors.",
 };
 
-export default async function page () {
-    const [catResult, listings] = await Promise.all([
+export default async function page({ searchParams }) {
+  const { category_id, city, make, model, body_type, min_price, max_price, year, transmission, fuel_type, condition } = await searchParams;
+
+  console.log("category_id", category_id);
+
+  const [catResult, listings] = await Promise.all([
     fetchAllCategories(),
     fetchAllListingsByFilter({
       listing_type: "motors",
-     pagination: {
-      page: 1,
-      }
+      pagination: {
+        page: 1,
+      },
+      category_id,
+      city,
+      make,
+      model,
+      body_type,
+      min_price,
+      max_price,
+      year,
+      transmission,
+      fuel_type,
+      condition,
     }),
   ]);
   const pagination = {
@@ -32,11 +47,24 @@ export default async function page () {
 
   return (
     <div className="bg-white min-h-screen">
-      
+
       <MotorsClient
-      category={catResult}
-            initialProducts={listings?.data || []}
-            pagination={pagination}
+        category={catResult}
+        initialProducts={listings?.data || []}
+        pagination={pagination}
+        initialFilters={{
+          category_id,
+          city,
+          make,
+          model,
+          body_type,
+          min_price,
+          max_price,
+          year,
+          transmission,
+          fuel_type,
+          condition,
+        }}
       />
     </div>
   );

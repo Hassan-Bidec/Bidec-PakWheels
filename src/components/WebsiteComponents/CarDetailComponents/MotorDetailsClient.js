@@ -70,11 +70,11 @@ function BidHistoryModal({ bids, open, onClose }) {
                         {bid.user?.name || "Unknown"}
                       </td>
                       <td className="py-2 px-3 border whitespace-nowrap">
-                        <span className="price">$</span>
-                        {Number(bid.amount)?.toLocaleString("en-US", {
-  minimumFractionDigits: 2,
-  maximumFractionDigits: 2,
-})}
+                        {/* <span className="price">$</span> */}
+                        PKR {Number(bid.amount)?.toLocaleString("en-US", {
+                          minimumFractionDigits: 2,
+                          maximumFractionDigits: 2,
+                        })}
                       </td>
                       <td className="py-2 px-3 border capitalize whitespace-nowrap">
                         {bid.type}
@@ -143,11 +143,11 @@ function BuyNowModal({ isOpen, onClose, product, onBuyNow }) {
             {t("Are you sure you want to buy this item now for")}
           </p>
           <p className="text-2xl sm:text-3xl font-bold text-green-600 mb-1">
-            <span className="price">$</span>
-            {product.buy_now_price?.toLocaleString("en-US", {
-  style: "currency",
-  currency: "SAR",
-})}
+            {/* <span className="price">$</span> */}
+            PKR {product.buy_now_price?.toLocaleString("en-US", {
+              style: "currency",
+              currency: "SAR",
+            })}
           </p>
           <p className="text-sm sm:text-base text-gray-500 truncate">
             {product.title}
@@ -301,9 +301,9 @@ export default function MotorDetailsClient({ product: initialProduct }) {
   const isInWatchlist = watchlist?.some(
     (item) => item.listing?.slug === product.slug
   );
-  const currentUser = useAuthStore((state) => state.user); 
-    const [isOpen, setIsOpen] = useState(false);
-    const [isOpenContact, setIsOpenContact] = useState(false);
+  const currentUser = useAuthStore((state) => state.user);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isOpenContact, setIsOpenContact] = useState(false);
   const dealer = product?.creator;
   const images = product?.images?.length
     ? product.images.map((img) => `${Image_URL}${img.image_path}`)
@@ -534,7 +534,7 @@ export default function MotorDetailsClient({ product: initialProduct }) {
 
       <section className="mx-auto px-4 py-2">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-white rounded-lg p-4 w-full max-w-[700px] mx-auto">
+          <div className="bg-white rounded-lg p-4 w-full max-w-[700px] mx-auto">
             {/* Carousel */}
             <div className="relative w-full h-[400px] flex items-center justify-center">
               {/* Left Arrow (hide on mobile if only 1 image) */}
@@ -642,7 +642,7 @@ export default function MotorDetailsClient({ product: initialProduct }) {
             </div>
           </div>
 
-{   product.listing_type == 'motors' ?       <div className="space-y-6 mt-5">
+          {product.listing_type == 'motors' ? <div className="space-y-6 mt-5">
             <h1 className="text-2xl lg:text-3xl font-bold text-gray-900">
               {product.title}
             </h1>
@@ -671,28 +671,28 @@ export default function MotorDetailsClient({ product: initialProduct }) {
                 <span className="mx-2 text-gray-400">|</span>
                 <span className="font-medium">{t("Time remaining")}:</span>
                 <span className="font-bold">
-                 {(() => {
-    const now = new Date(
-      new Date().toLocaleString("en-US", { timeZone: "Asia/Riyadh" })
-    );
+                  {(() => {
+                    const now = new Date(
+                      new Date().toLocaleString("en-US", { timeZone: "Asia/Riyadh" })
+                    );
 
-    const expire = new Date(
-      new Date(product.expire_at).toLocaleString("en-US", { timeZone: "Asia/Riyadh" })
-    );
+                    const expire = new Date(
+                      new Date(product.expire_at).toLocaleString("en-US", { timeZone: "Asia/Riyadh" })
+                    );
 
-    const diff = expire - now;
-    if (diff <= 0) return "Expired";
+                    const diff = expire - now;
+                    if (diff <= 0) return "Expired";
 
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+                    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+                    const minutes = Math.floor((diff / (1000 * 60)) % 60);
 
-    let str = "";
-    if (days > 0) str += `${days}d `;
-    if (hours > 0 || days > 0) str += `${hours}h `;
-    str += `${minutes}m`;
-    return str.trim();
-  })()}
+                    let str = "";
+                    if (days > 0) str += `${days}d `;
+                    if (hours > 0 || days > 0) str += `${hours}h `;
+                    str += `${minutes}m`;
+                    return str.trim();
+                  })()}
                 </span>
               </div>
             )}
@@ -752,13 +752,13 @@ export default function MotorDetailsClient({ product: initialProduct }) {
                   <div className="mb-2">
                     <span className="block text-sm text-gray-600">Buy Now</span>
                     <span className="block text-4xl font-bold text-gray-900">
-                      <span className="price">$</span>
-            {(Number(product.buy_now_price) || product.buy_now_price === 0)
-  ? Number(product.buy_now_price).toLocaleString("en-US", {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    })
-  : "-"}
+                      {/* <span className="price">$</span> */}
+                      PKR {(Number(product.buy_now_price) || product.buy_now_price === 0)
+                        ? Number(product.buy_now_price).toLocaleString("en-US", {
+                          minimumFractionDigits: 2,
+                          maximumFractionDigits: 2,
+                        })
+                        : "-"}
 
                     </span>
                   </div>
@@ -785,11 +785,11 @@ export default function MotorDetailsClient({ product: initialProduct }) {
                     {t("Current Bid")}
                   </p>
                   <p className="text-4xl font-bold text-gray-900">
-                    <span className="price">$</span>
-                    {product.bids[0]?.amount?.toLocaleString("en-US", {
-  minimumFractionDigits: 2,
-  maximumFractionDigits: 2,
-}) || "0.00"}
+                    {/* <span className="price">$</span> */}
+                    PKR {product.bids[0]?.amount?.toLocaleString("en-US", {
+                      minimumFractionDigits: 2,
+                      maximumFractionDigits: 2,
+                    }) || "0.00"}
                   </p>
                 </div>
               ) : (
@@ -798,11 +798,11 @@ export default function MotorDetailsClient({ product: initialProduct }) {
                     {t("Starting From")}
                   </p>
                   <p className="text-4xl font-bold text-gray-900">
-                    <span className="price">$</span>
-                    {product.start_price?.toLocaleString("en-US", {
-  minimumFractionDigits: 2,
-  maximumFractionDigits: 2,
-}) || "0.00"}
+                    {/* <span className="price">$</span> */}
+                    PKR {product.start_price?.toLocaleString("en-US", {
+                      minimumFractionDigits: 2,
+                      maximumFractionDigits: 2,
+                    }) || "0.00"}
                   </p>
                 </div>
               )}
@@ -905,7 +905,7 @@ export default function MotorDetailsClient({ product: initialProduct }) {
               {/* Seller Info */}
               <div
                 className={`flex-1 ${i18n.language === "ar" ? "text-right" : "text-left"
-                  } sm:order-2`}    
+                  } sm:order-2`}
               >
                 <div className="text-base font-semibold text-black break-words">
                   {product.creator?.username || t("Seller")}
@@ -955,66 +955,67 @@ export default function MotorDetailsClient({ product: initialProduct }) {
               </div>
             </div>
           </div> :
-          <div>
-                    {/* Title */}
-                    <div className="flex justify-between items-start mb-2">
-                      <h1 className="text-2xl font-bold">{product?.title}</h1>
-                    </div>
-                    <p className="text-gray-500 text-sm mb-4">
-                     {product?.description}
-                     </p>
-          
-                    {/* Location & Specs */}
-                    <div className="flex flex-wrap gap-4 text-sm mb-3">
-                      <span className="flex items-center gap-1 text-green-500">
-                        <FaMapMarkerAlt /> {`${product?.creator?.city}, ${product?.creator?.country}` || "Unknown Location"}
-                      </span>
-                      </div>
-                    <div className="flex flex-wrap gap-4 text-sm mb-3">
-                     
-                      {/* Bedrooms */}
-  {product?.bedrooms && (
-    <span className="flex items-center gap-1">
-      <FaBed /> {product.bedrooms}
-    </span>
-  )}
+            <div>
+              {/* Title */}
+              <div className="flex justify-between items-start mb-2">
+                <h1 className="text-2xl font-bold">{product?.title}</h1>
+              </div>
+              <p className="text-gray-500 text-sm mb-4">
+                {product?.description}
+              </p>
 
-  {/* Bathrooms */}
-  {product?.bathrooms && (
-    <span className="flex items-center gap-1">
-      <FaBath /> {product.bathrooms}
-    </span>
-  )}
+              {/* Location & Specs */}
+              <div className="flex flex-wrap gap-4 text-sm mb-3">
+                <span className="flex items-center gap-1 text-green-500">
+                  <FaMapMarkerAlt /> {`${product?.creator?.city}, ${product?.creator?.country}` || "Unknown Location"}
+                </span>
+              </div>
+              <div className="flex flex-wrap gap-4 text-sm mb-3">
 
-  {/* Plot Size */}
-  {product?.plot_size && (
-    <span className="flex items-center gap-1">
-      <FaRulerCombined /> {product.plot_size} sqft
-    </span>
-  )}
+                {/* Bedrooms */}
+                {product?.bedrooms && (
+                  <span className="flex items-center gap-1">
+                    <FaBed /> {product.bedrooms}
+                  </span>
+                )}
 
-                    </div>
-          
-                    {/* Price */}
-                    <div className="mb-6">
-                      <p className="text-gray-500 text-sm">Asking price:</p>
-                      <p className="text-3xl font-bold text-black">
-                        <span className="price">$</span>{Number(product?.buy_now_price)?.toLocaleString("en-US", {
-  minimumFractionDigits: 2,
-  maximumFractionDigits: 2,
-})}{" "}
-                      </p>
-                    </div>
-          
-                     <button
-                  onClick={() => setIsOpen(true)}
-                  className="w-full cursor-pointer bg-green-500 text-white py-2 rounded-3xl font-medium flex items-center justify-center gap-2"
-                >
-                  <FaPhoneAlt /> Contact Seller
-                </button>
-                  </div>
+                {/* Bathrooms */}
+                {product?.bathrooms && (
+                  <span className="flex items-center gap-1">
+                    <FaBath /> {product.bathrooms}
+                  </span>
+                )}
+
+                {/* Plot Size */}
+                {product?.plot_size && (
+                  <span className="flex items-center gap-1">
+                    <FaRulerCombined /> {product.plot_size} sqft
+                  </span>
+                )}
+
+              </div>
+
+              {/* Price */}
+              <div className="mb-6">
+                <p className="text-gray-500 text-sm">Asking price:</p>
+                <p className="text-3xl font-bold text-black">
+                  {/* <span className="price">$</span> */}
+                  PKR {Number(product?.buy_now_price)?.toLocaleString("en-US", {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  })}{" "}
+                </p>
+              </div>
+
+              <button
+                onClick={() => setIsOpen(true)}
+                className="w-full cursor-pointer bg-green-500 text-white py-2 rounded-3xl font-medium flex items-center justify-center gap-2"
+              >
+                <FaPhoneAlt /> Contact Seller
+              </button>
+            </div>
           }
-      </div>
+        </div>
       </section>
       {/* ======= PRODUCT DETAILS ======= */}
       <div className="max-w-7xl mx-auto bg-white rounded-lg px-6 md:px-20 py-10">
@@ -1375,80 +1376,80 @@ export default function MotorDetailsClient({ product: initialProduct }) {
               </div>
             </div>
           )}
-    {/* Modal */}
-{isOpenContact && (
-  <div className="fixed inset-0 flex items-center justify-center z-50">
-    {/* Background Overlay */}
-    <div
-      className="absolute inset-0 bg-black opacity-50"
-      onClick={() => setIsOpen(false)}
-    ></div>
+          {/* Modal */}
+          {isOpenContact && (
+            <div className="fixed inset-0 flex items-center justify-center z-50">
+              {/* Background Overlay */}
+              <div
+                className="absolute inset-0 bg-black opacity-50"
+                onClick={() => setIsOpen(false)}
+              ></div>
 
-    {/* Modal Content */}
-    <div className="relative bg-white rounded-lg shadow-lg max-w-lg w-full p-6 z-10">
-      {/* Close Button */}
-      <button
-        onClick={() => setIsOpen(false)}
-        className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
-      >
-        ✕
-      </button>
+              {/* Modal Content */}
+              <div className="relative bg-white rounded-lg shadow-lg max-w-lg w-full p-6 z-10">
+                {/* Close Button */}
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
+                >
+                  ✕
+                </button>
 
-      {/* Dealer Info */}
-      <h2 className="text-xl font-semibold mb-4">Seller Information</h2>
+                {/* Dealer Info */}
+                <h2 className="text-xl font-semibold mb-4">Seller Information</h2>
 
-      <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
-        {/* Left Side - Profile Photo */}
-        <div className="bg-[#113f2e] w-36 h-36 rounded-full overflow-hidden border border-gray-300 flex justify-center items-center">
-           {dealer?.profile_photo ? (
-    <img
-      src={`${Image_URL}${dealer.profile_photo}`}
-      alt={dealer?.name}
-      className="w-full h-full object-cover"
-    />
-  ) : (
-    <span className="text-white text-5xl">{dealer?.name?.charAt(0)?.toUpperCase()}</span>
-  )}
-        </div>
+                <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
+                  {/* Left Side - Profile Photo */}
+                  <div className="bg-[#113f2e] w-36 h-36 rounded-full overflow-hidden border border-gray-300 flex justify-center items-center">
+                    {dealer?.profile_photo ? (
+                      <img
+                        src={`${Image_URL}${dealer.profile_photo}`}
+                        alt={dealer?.name}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <span className="text-white text-5xl">{dealer?.name?.charAt(0)?.toUpperCase()}</span>
+                    )}
+                  </div>
 
-        {/* Right Side - Details */}
-        <div className="flex-1 space-y-2 text-gray-700 text-md md:text-md">
-          <p>
-            <strong>Name:</strong> {dealer?.name}
-          </p>
-          <p>
-            <strong>Email:</strong> {dealer?.email}
-          </p>
-          <p>
-            <strong>Phone:</strong> {dealer?.phone}
-          </p>
-          <p>
-            <strong>City:</strong> {dealer?.city}
-          </p>
-          <p>
-            <strong>Country:</strong> {dealer?.country}
-          </p>
-        </div>
-      </div>
+                  {/* Right Side - Details */}
+                  <div className="flex-1 space-y-2 text-gray-700 text-md md:text-md">
+                    <p>
+                      <strong>Name:</strong> {dealer?.name}
+                    </p>
+                    <p>
+                      <strong>Email:</strong> {dealer?.email}
+                    </p>
+                    <p>
+                      <strong>Phone:</strong> {dealer?.phone}
+                    </p>
+                    <p>
+                      <strong>City:</strong> {dealer?.city}
+                    </p>
+                    <p>
+                      <strong>Country:</strong> {dealer?.country}
+                    </p>
+                  </div>
+                </div>
 
-      {/* Action Buttons */}
-      <div className="flex gap-3 mt-6">
-        <a
-          href={`mailto:${dealer?.email}`}
-          className="flex-1 bg-gray-200 text-gray-900 py-2 rounded-3xl font-medium flex items-center justify-center gap-2"
-        >
-          <FaEnvelope /> Email
-        </a>
-        <a
-          href={`tel:${dealer?.phone}`}
-          className="flex-1 bg-green-500 text-white py-2 rounded-3xl font-medium flex items-center justify-center gap-2"
-        >
-          <FaPhoneAlt /> Call
-        </a>
-      </div>
-    </div>
-  </div>
-)}
+                {/* Action Buttons */}
+                <div className="flex gap-3 mt-6">
+                  <a
+                    href={`mailto:${dealer?.email}`}
+                    className="flex-1 bg-gray-200 text-gray-900 py-2 rounded-3xl font-medium flex items-center justify-center gap-2"
+                  >
+                    <FaEnvelope /> Email
+                  </a>
+                  <a
+                    href={`tel:${dealer?.phone}`}
+                    className="flex-1 bg-green-500 text-white py-2 rounded-3xl font-medium flex items-center justify-center gap-2"
+                  >
+                    <FaPhoneAlt /> Call
+                  </a>
+                </div>
+              </div>
+            </div>
+          )}
 
         </div>
 
@@ -1516,80 +1517,80 @@ export default function MotorDetailsClient({ product: initialProduct }) {
         </div>
       )}
 
-        {/* Modal */}
-{isOpen && (
-  <div className="fixed inset-0 flex items-center justify-center z-50">
-    {/* Background Overlay */}
-    <div
-      className="absolute inset-0 bg-black opacity-50"
-      onClick={() => setIsOpen(false)}
-    ></div>
+      {/* Modal */}
+      {isOpen && (
+        <div className="fixed inset-0 flex items-center justify-center z-50">
+          {/* Background Overlay */}
+          <div
+            className="absolute inset-0 bg-black opacity-50"
+            onClick={() => setIsOpen(false)}
+          ></div>
 
-    {/* Modal Content */}
-    <div className="relative bg-white rounded-lg shadow-lg max-w-lg w-full p-6 z-10">
-      {/* Close Button */}
-      <button
-        onClick={() => setIsOpen(false)}
-        className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
-      >
-        ✕
-      </button>
+          {/* Modal Content */}
+          <div className="relative bg-white rounded-lg shadow-lg max-w-lg w-full p-6 z-10">
+            {/* Close Button */}
+            <button
+              onClick={() => setIsOpen(false)}
+              className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
+            >
+              ✕
+            </button>
 
-      {/* Dealer Info */}
-      <h2 className="text-xl font-semibold mb-4">Seller Information</h2>
+            {/* Dealer Info */}
+            <h2 className="text-xl font-semibold mb-4">Seller Information</h2>
 
-      <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
-        {/* Left Side - Profile Photo */}
-        <div className="bg-[#113f2e] w-36 h-36 rounded-full overflow-hidden border border-gray-300 flex justify-center items-center">
-           {dealer?.profile_photo ? (
-    <img
-      src={`${Image_URL}${dealer.profile_photo}`}
-      alt={dealer?.name}
-      className="w-full h-full object-cover"
-    />
-  ) : (
-    <span className="text-white text-5xl">{dealer?.name?.charAt(0)?.toUpperCase()}</span>
-  )}
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
+              {/* Left Side - Profile Photo */}
+              <div className="bg-[#113f2e] w-36 h-36 rounded-full overflow-hidden border border-gray-300 flex justify-center items-center">
+                {dealer?.profile_photo ? (
+                  <img
+                    src={`${Image_URL}${dealer.profile_photo}`}
+                    alt={dealer?.name}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <span className="text-white text-5xl">{dealer?.name?.charAt(0)?.toUpperCase()}</span>
+                )}
+              </div>
+
+              {/* Right Side - Details */}
+              <div className="flex-1 space-y-2 text-gray-700 text-md md:text-md">
+                <p>
+                  <strong>Name:</strong> {dealer?.name}
+                </p>
+                <p>
+                  <strong>Email:</strong> {dealer?.email}
+                </p>
+                <p>
+                  <strong>Phone:</strong> {dealer?.phone}
+                </p>
+                <p>
+                  <strong>City:</strong> {dealer?.city}
+                </p>
+                <p>
+                  <strong>Country:</strong> {dealer?.country}
+                </p>
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex gap-3 mt-6">
+              <a
+                href={`mailto:${dealer?.email}`}
+                className="flex-1 bg-gray-200 text-gray-900 py-2 rounded-3xl font-medium flex items-center justify-center gap-2"
+              >
+                <FaEnvelope /> Email
+              </a>
+              <a
+                href={`tel:${dealer?.phone}`}
+                className="flex-1 bg-green-500 text-white py-2 rounded-3xl font-medium flex items-center justify-center gap-2"
+              >
+                <FaPhoneAlt /> Call
+              </a>
+            </div>
+          </div>
         </div>
-
-        {/* Right Side - Details */}
-        <div className="flex-1 space-y-2 text-gray-700 text-md md:text-md">
-          <p>
-            <strong>Name:</strong> {dealer?.name}
-          </p>
-          <p>
-            <strong>Email:</strong> {dealer?.email}
-          </p>
-          <p>
-            <strong>Phone:</strong> {dealer?.phone}
-          </p>
-          <p>
-            <strong>City:</strong> {dealer?.city}
-          </p>
-          <p>
-            <strong>Country:</strong> {dealer?.country}
-          </p>
-        </div>
-      </div>
-
-      {/* Action Buttons */}
-      <div className="flex gap-3 mt-6">
-        <a
-          href={`mailto:${dealer?.email}`}
-          className="flex-1 bg-gray-200 text-gray-900 py-2 rounded-3xl font-medium flex items-center justify-center gap-2"
-        >
-          <FaEnvelope /> Email
-        </a>
-        <a
-          href={`tel:${dealer?.phone}`}
-          className="flex-1 bg-green-500 text-white py-2 rounded-3xl font-medium flex items-center justify-center gap-2"
-        >
-          <FaPhoneAlt /> Call
-        </a>
-      </div>
-    </div>
-  </div>
-)}
+      )}
     </div>
   );
 }

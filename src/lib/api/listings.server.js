@@ -4,7 +4,7 @@ export async function fetchProduct(productSlug) {
   const cookieStore = await cookies();
   const token = cookieStore.get('token')?.value;
   console.log('URL', `${process.env.NEXT_PUBLIC_API_BASE_URL_MA3ROOD}listings/${productSlug}/show`);
-  
+
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL_MA3ROOD}listings/${productSlug}/show`, {
     headers: {
       'Content-Type': 'application/json',
@@ -59,7 +59,7 @@ export async function fetchProductsForCategory(categoryId, search = "", city = "
   const token = cookieStore.get('token')?.value;
 
   let url = `${process.env.NEXT_PUBLIC_API_BASE_URL_MA3ROOD}listings?status=1&page=${page}`;
-  
+
   if (categoryId) {
     url += `&category_id=${categoryId}`;
   }
@@ -132,7 +132,7 @@ export async function fetchAllListings(categoryId, categoryIdFilter, search, cit
 }
 
 export async function fetchAllListingsByFilter(payload) {
-  console.log('chk',payload)
+  console.log('category_id payload', payload)
   try {
     const url = `${process.env.NEXT_PUBLIC_API_BASE_URL_MA3ROOD}listings/filters`;
 
@@ -144,14 +144,14 @@ export async function fetchAllListingsByFilter(payload) {
       },
     };
 
-      // ✅ add category_id conditionally
+    // ✅ add category_id conditionally
     if (payload?.category_id !== undefined && payload?.category_id !== null) {
       const categoryId = parseInt(payload.category_id, 10);
       if (!Number.isNaN(categoryId)) {
         formattedPayload.category_id = categoryId;
       }
     }
-     // ✅ add city if present
+    // ✅ add city if present
     if (payload?.city) {
       formattedPayload.city = payload.city;
     }
@@ -182,11 +182,41 @@ export async function fetchAllListingsByFilter(payload) {
       formattedPayload.max_price = payload.max_price;
     }
 
+    // ✅ add make if present
+    if (payload?.make) {
+      formattedPayload.make = payload.make;
+    }
+
+    // ✅ add model if present
+    if (payload?.model) {
+      formattedPayload.model = payload.model;
+    }
+
+    // ✅ add body_type if present
+    if (payload?.body_type) {
+      formattedPayload.body_type = payload.body_type;
+    }
+
+    // ✅ add fuel_type if present
+    if (payload?.fuel_type) {
+      formattedPayload.fuel_type = payload.fuel_type;
+    }
+
+    // ✅ add transmission if present
+    if (payload?.transmission) {
+      formattedPayload.transmission = payload.transmission;
+    }
+
+    // ✅ add year if present
+    if (payload?.year) {
+      formattedPayload.year = payload.year;
+    }
+
     // ✅ add filters if present
-    if (payload?.filters && Object.keys(payload.filters).length > 0) {
+    if (payload?.filters && Object.keys(payload?.filters).length > 0) {
       formattedPayload.filters = { ...payload.filters };
     }
-console.log("formattedPayload", formattedPayload);
+    console.log("formattedPayload", formattedPayload);
 
     const res = await fetch(url, {
       method: "POST",
@@ -198,7 +228,7 @@ console.log("formattedPayload", formattedPayload);
     if (!res.ok) throw new Error("Failed to fetch listings: " + res.status);
 
     console.log(res.data);
-    
+
     return await res.json();
   } catch (error) {
     console.error("fetchAllListings error:", error);
@@ -207,7 +237,7 @@ console.log("formattedPayload", formattedPayload);
 }
 
 export async function fetchAllMotorsApi(payload) {
-  
+
   try {
     const url = `${process.env.NEXT_PUBLIC_API_BASE_URL_MA3ROOD}listings/filters`;
 
@@ -219,14 +249,14 @@ export async function fetchAllMotorsApi(payload) {
       },
     };
 
-      // ✅ add category_id conditionally
+    // ✅ add category_id conditionally
     if (payload?.category_id !== undefined && payload?.category_id !== null) {
       const categoryId = parseInt(payload.category_id, 10);
       if (!Number.isNaN(categoryId)) {
         formattedPayload.category_id = categoryId;
       }
     }
-     // ✅ add city if present
+    // ✅ add city if present
     if (payload?.city) {
       formattedPayload.city = payload.city;
     }
@@ -255,7 +285,7 @@ export async function fetchAllMotorsApi(payload) {
     if (payload?.filters && Object.keys(payload.filters).length > 0) {
       formattedPayload.filters = { ...payload.filters };
     }
-console.log("formattedPayload", formattedPayload);
+    console.log("formattedPayload", formattedPayload);
 
     const res = await fetch(url, {
       method: "POST",
@@ -267,7 +297,7 @@ console.log("formattedPayload", formattedPayload);
     if (!res.ok) throw new Error("Failed to fetch listings: " + res.status);
 
     console.log(res.data);
-    
+
     return await res.json();
   } catch (error) {
     console.error("fetchAllListings error:", error);
